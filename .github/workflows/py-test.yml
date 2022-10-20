@@ -17,7 +17,7 @@ jobs:
         run: echo "the name of the branch is $${{ github.ref }} in repository ${{ github.repositiry }}"
       - name: check out repo code 
         uses: actions/checkout@2
-        run: echo "the repository ${{ github.repositiry }} is cloned on the runner"
+      - run: echo "the repository ${{ github.repositiry }} is cloned on the runner"
       - name: setting up python
         uses: actions/setup-python@v2
         with:
@@ -39,7 +39,7 @@ jobs:
           echo "deploy in progress ..."
           sleed 20
           echo "deploy done"
-          echo "this job is status ${{ job.status }}" 
+      - run: echo "this job is status ${{ job.status }}" 
           
          
          
