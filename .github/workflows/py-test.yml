@@ -37,7 +37,7 @@ jobs:
       - name: deploy
         run: |
           echo "deploy in progress ..."
-          sleed 20
+          sleep 20
           echo "deploy done"
       - run: echo "this job is status ${{ job.status }}" 
           
