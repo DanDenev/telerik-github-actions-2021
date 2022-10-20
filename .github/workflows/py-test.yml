@@ -1,0 +1,46 @@
+name: test-py-stuff
+on:
+  push: 
+    branches: [ DanDenev-first-yml ]
+    paths:
+    - 'factorial.py'
+    - 'lint_test.py'
+
+jobs:
+  lint: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test which os runner is using
+        runs: echo "this job is now running ${{ runner.os }} server"
+      - name: Which repo and branch
+        runs: echo "the name of the branch is $${{ github.ref }} in repository ${{ github.repositiry }}"
+      - name: check out repo code 
+        uses: actions/checkout@2
+        run: echo "the repository ${{ github.repositiry }} is cloned on the runner"
+      - name: setting up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: install dependecies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+      - name: Lint with pylint
+        run: |
+          python lint_test.py
+      - name: Build container
+        run: |
+          echo "bilding docker container..."
+          sleep 20
+          echo "docker is ready"
+      - name: deploy
+         run: |
+          echo "deploy in progress ..."
+          sleed 20
+          echo "deploy done"
+         run: echo "this job is status ${{ job.status }}" 
+          
+         
+         
+   
+      
