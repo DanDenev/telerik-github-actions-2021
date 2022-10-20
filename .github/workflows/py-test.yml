@@ -34,11 +34,11 @@ jobs:
           sleep 20
           echo "docker is ready"
       - name: deploy
-         run: |
+        run: |
           echo "deploy in progress ..."
           sleed 20
           echo "deploy done"
-         run: echo "this job is status ${{ job.status }}" 
+        run: echo "this job is status ${{ job.status }}" 
           
          
          
